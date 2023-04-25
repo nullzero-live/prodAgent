@@ -1,4 +1,5 @@
 # Main code management and loop
+import os
 from langchain.utilities import SerpAPIWrapper
 from langchain.agents import initialize_agent, Tool
 from langchain.utilities import WikipediaAPIWrapper
@@ -7,20 +8,22 @@ from langchain.agents import Tool
 from langchain.agents import AgentType
 from langchain.chat_models import ChatOpenAI
 from dotenv import load_dotenv
-import os
+
 
 load_dotenv()
+
 
 def init_llm():
     llm=ChatOpenAI(
     openai_api_key=os.environ.get("OPENAI_API_KEY"),
     temperature=0,
     model_name='gpt-3.5-turbo')
+    
     return llm
 
 
 
-def create_tools():
+'''def create_tools():
     #Wrappers
     wikipedia = WikipediaAPIWrapper()
     search = SerpAPIWrapper()
@@ -47,3 +50,4 @@ def create_tools():
     )]
     
 
+'''
